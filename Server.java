@@ -1,8 +1,9 @@
 public class Server implements Runnable{
-    private int counter;
+    private static int counter = 0;
+    private String threadName;
 
-    public Server(int counter) {
-        this.counter = counter;
+    public Server(String threadName) {
+        this.threadName = threadName;
     }
 
 
@@ -11,7 +12,7 @@ public class Server implements Runnable{
     }
 
     public void printCounter() {
-        System.out.println(counter);
+        System.out.println(threadName + " thread count: " + counter);
     }
 
     public void run() {
@@ -19,7 +20,7 @@ public class Server implements Runnable{
             addCounter();
             printCounter();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             }
             catch (InterruptedException e) {
                 System.out.println(e);
