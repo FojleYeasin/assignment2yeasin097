@@ -1,9 +1,9 @@
 public class Server implements Runnable{
     private static int counter = 0;
-    private String threadName;
+    private int threadID;
 
-    public Server(String threadName) {
-        this.threadName = threadName;
+    public Server(int threadID) {
+        this.threadID = threadID;
     }
 
 
@@ -12,7 +12,7 @@ public class Server implements Runnable{
     }
 
     public void printCounter() {
-        System.out.println(threadName + " thread count: " + counter);
+        System.out.println(threadID + " thread count: " + counter);
     }
 
     public void run() {
