@@ -3,6 +3,11 @@ public class Main {
 
     // The main method is the entry point of the program
     public static void main(String[] args) {
+
+        // Thread[] thread = new Thread[100];
+        // for(int i=0; i<100; i++) {
+
+        // }
         Server server1 = new Server("1");
         Server server2 = new Server("2");
 
