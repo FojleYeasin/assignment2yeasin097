@@ -1,19 +1,19 @@
 import java.util.Queue;
 
-public class Server {
+public class Server implements Runnable{
     
 
     private Queue<Customers> customerQueue;
+    private int server_id;
     
-    public Server(Queue<Customers> customerQueue) {
+    public Server(Queue<Customers> customerQueue, int server_id) {
         this.customerQueue = customerQueue;
-
-
+        this.server_id = server_id;
     }
 
 
 
-    public void Serve() {
+    public void run() {
         int running_time = 0;
         while (!customerQueue.isEmpty()) {
             Customers currentCustomer = customerQueue.peek();
@@ -25,13 +25,14 @@ public class Server {
                     currentCustomer.outgoing_time = running_time + currentCustomer.service_time;
                     currentCustomer.service_taken = true;
                     running_time += currentCustomer.service_time;
+                    System.out.println("Served by server "+ server_id + "\n");
                     continue;
                 }
                 else {
                     System.out.println("Customer " + currentCustomer.customerID + " leaved the bank without taking service");
                     System.out.println("Running time " + running_time);
                     System.out.println("Incoming time " + currentCustomer.incoming_time);
-                    System.out.println("Waiting time " + currentCustomer.max_waiting_time);
+                    System.out.println("Waiting time " + currentCustomer.max_waiting_time+ "\n");
                     currentCustomer.service_taken = false;
                 }
                 
