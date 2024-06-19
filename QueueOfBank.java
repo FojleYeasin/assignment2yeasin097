@@ -11,7 +11,7 @@ public class QueueOfBank {
     public QueueOfBank(int customer_no) {
         this.customer_no = customer_no;
         this.cutomerQueue = new LinkedList<>();
-        initializeQueue();
+        initializeQueue(); 
     }
 
     private  void initializeQueue() {

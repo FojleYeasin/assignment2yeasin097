@@ -6,6 +6,7 @@ public class Customers {
     public int max_waiting_time;
     public String customerID;
     public boolean service_taken = false;
+    public int service_start_time;
     Random random = new Random();
 
     public Customers(int incoming_time) {
@@ -20,6 +21,22 @@ public class Customers {
         }
         else {
             return  -1;
+        }
+    }
+
+    public void get_times() {
+        System.out.println(customerID + " deatils");
+        if(!service_taken) {
+            // System.out.println("Customer "+ customerID + "deatils");
+            System.out.println("Came at "+ incoming_time);
+            System.out.println("Service started "+ service_start_time);
+            System.out.println("Service finished "+ service_start_time+service_time+"\n");
+
+        }
+        else {
+            System.out.println("Did not take service");
+            System.out.println("Came at "+ incoming_time);
+            System.out.println("Leave at "+ incoming_time+max_waiting_time+"\n");
         }
     }
 }

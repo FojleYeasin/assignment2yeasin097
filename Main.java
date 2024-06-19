@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Queue;
 
 public class Main {
@@ -6,21 +7,37 @@ public class Main {
         long startTime = System.nanoTime();
 
         int customer_no = 50;
+        int server_count = 5;
 
         QueueOfBank bankQueue = new QueueOfBank(customer_no);
         Queue<Customers> customerQueue = bankQueue.getCustomerQueue();
 
+        Server[] servers = new Server[server_count];
+        Thread[] threads = new Thread[server_count];
 
-        Server server1 = new Server(customerQueue,1);
 
-        Server server2 = new Server(customerQueue,2);
 
-        Thread thread1 = new Thread(server1);
-        Thread thread2 = new Thread(server2);
+        for(int i=0; i<server_count; i++) {
+            servers[i] = new Server(customerQueue, i+1);
+            threads[i] = new Thread(servers[i]);
+            threads[i].start();
+        }
 
-        thread1.start();
-        thread2.start();
+        for (int i = 0; i < server_count; i++) {
+            try {
+                threads[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
+
+        for (Server server : servers) {
+            List<Customers> processedCustomers = server.getProcessedCustomers();
+            for (Customers customer : processedCustomers) {
+                customer.get_times(); 
+            }
+        }
         long endTime = System.nanoTime();
 
         System.out.println("This code is run by "+ (endTime - startTime)/1000000 + "ms");
