@@ -2,14 +2,11 @@ import java.util.Queue;
 
 public class Server {
     
-    private int customer_no;
-    private QueueOfBank bankQueue;
+
     private Queue<Customers> customerQueue;
     
-    public Server(int customer_no) {
-        this.customer_no = customer_no;
-        this.bankQueue = new QueueOfBank(this.customer_no);
-        this.customerQueue = this.bankQueue.getCustomerQueue();
+    public Server(Queue<Customers> customerQueue) {
+        this.customerQueue = customerQueue;
 
 
     }
