@@ -19,7 +19,7 @@ public class QueueOfBank {
         Random random = new Random();
 
         for(int i=0; i<customer_no; i++) {
-            int random_int = random.nextInt(50);
+            int random_int = random.nextInt(100);
             customers[i] = new Customers(random_int);
         }
 

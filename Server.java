@@ -21,13 +21,8 @@ public class Server implements Runnable{
 
     public void run() {
         int running_time = 0;
-        while (true) {
-            Customers currentCustomer;
-
-            synchronized (customerQueue) {
-                currentCustomer = customerQueue.peek();
-                if(currentCustomer==null) break;
-            }
+        while (!customerQueue.isEmpty()) {
+            Customers currentCustomer = customerQueue.peek();
             if(running_time>=currentCustomer.incoming_time){
                 customerQueue.remove();
                 if(running_time < currentCustomer.incoming_time + currentCustomer.max_waiting_time) {
