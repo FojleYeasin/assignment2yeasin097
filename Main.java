@@ -42,7 +42,7 @@ public class Main {
             for (Server server : servers) {
                 List<Customers> processedCustomers = server.getProcessedCustomers();
                 for (Customers customer : processedCustomers) {
-                    customer.get_times(); // Print details of each customer to file (now redirected)
+                    customer.get_times();
                 }
             }
 
@@ -52,7 +52,6 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-            // Restore original System.out
             System.setOut(originalOut);
         }
     }
