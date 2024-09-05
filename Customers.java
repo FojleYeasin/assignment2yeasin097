@@ -11,8 +11,8 @@ public class Customers {
 
     public Customers(int incoming_time) {
         this.incoming_time = incoming_time;
-        this.service_time =  random.nextInt(15);
-        this.max_waiting_time = random.nextInt(60);
+        this.service_time =  random.nextInt(5);
+        this.max_waiting_time = random.nextInt(10);
     }
     
     public int get_waiting() {

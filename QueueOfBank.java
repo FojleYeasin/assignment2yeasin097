@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Queue;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class QueueOfBank {
 
     public QueueOfBank(int customer_no) {
         this.customer_no = customer_no;
-        this.cutomerQueue = new LinkedList<>();
+        this.cutomerQueue = new ConcurrentLinkedQueue<>();
         initializeQueue(); 
     }
 
