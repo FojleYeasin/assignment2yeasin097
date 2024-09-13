@@ -11,8 +11,9 @@ public class Customers {
 
     public Customers(int incoming_time) {
         this.incoming_time = incoming_time;
-        this.service_time =  random.nextInt(5);
-        this.max_waiting_time = random.nextInt(10);
+        this.service_time =  random.nextInt(5)+6;
+        this.max_waiting_time = random.nextInt(10)+5;
+
     }
     
     public int get_waiting() {
@@ -26,17 +27,19 @@ public class Customers {
 
     public void get_times() {
         System.out.println(customerID + " deatils");
-        if(!service_taken) {
-            // System.out.println("Customer "+ customerID + "deatils");
+        if(service_taken) {
+            System.out.println("Customer "+ customerID + "deatils");
             System.out.println("Came at "+ incoming_time);
+            System.out.println("Max wait "+ max_waiting_time);
             System.out.println("Service started "+ service_start_time);
-            System.out.println("Service finished "+ service_start_time+service_time+"\n");
+            System.out.println("Service finished "+ (service_start_time+service_time)+"\n");
 
         }
         else {
             System.out.println("Did not take service");
             System.out.println("Came at "+ incoming_time);
-            System.out.println("Leave at "+ incoming_time+max_waiting_time+"\n");
+            System.out.println("Max wait "+ max_waiting_time);
+            System.out.println("Leave at "+ (incoming_time+max_waiting_time)+"\n");
         }
     }
 }

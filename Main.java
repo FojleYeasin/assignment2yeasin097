@@ -32,7 +32,6 @@ public class Main {
             }
         }
 
-
         for (Server server : servers) {
             List<Customers> processedCustomers = server.getProcessedCustomers();
             for (Customers customer : processedCustomers) {

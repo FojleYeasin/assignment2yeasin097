@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Queue;
 import java.util.Random;
@@ -20,7 +19,7 @@ public class QueueOfBank {
         Random random = new Random();
 
         for(int i=0; i<customer_no; i++) {
-            int random_int = random.nextInt(100);
+            int random_int = random.nextInt(100)+1;
             customers[i] = new Customers(random_int);
         }
 
